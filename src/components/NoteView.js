@@ -12,8 +12,8 @@ class NoteView extends Component {
 
   render() {
     const id = this.props.match.params.number;
-    const noteTitle = this.props.noteData.notes[id].title;
-    const noteBody = this.props.noteData.notes[id].body;
+    const noteTitle = this.props.data.notes[id].title;
+    const noteBody = this.props.data.notes[id].body;
     return (
       <div className="noteViewContainer">
         <div className="linkContainer">
@@ -28,7 +28,7 @@ class NoteView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  noteData: state,
+  data: state,
 });
 
 export default connect(mapStateToProps)(withRouter(NoteView));

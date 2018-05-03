@@ -10,21 +10,23 @@ class NoteCreate extends Component {
     this.state = {
       noteTitle: '',
       noteBody: '',
-      id: props.noteData.nextid,
+      id: props.data.nextid,
     }
+    this.handleInput = this.handleInput.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
-  handleInput = (event) => {
+  handleInput(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value })
   }
 
-  handleAdd = (event) => {
+  handleAdd(event) {
     event.preventDefault();
     let { noteTitle, noteBody, id} = this.state;
     if (noteTitle && noteBody !== '') {
       this.props.addNote(noteTitle, noteBody, id);
-      this.props.history.push('/');
+      this.props.history.push('/notes');
     } else {
       alert('Fields must not be empty!');
     }
@@ -47,7 +49,7 @@ class NoteCreate extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  noteData: state,
+  data: state,
 });
 
 export default connect(mapStateToProps, { addNote })(withRouter(NoteCreate));

@@ -15,7 +15,7 @@ class NoteEdit extends Component {
   }
 
   componentDidMount() {
-    const { body, title } = this.props.noteData.notes[this.props.match.params.number];
+    const { body, title } = this.props.data.notes[this.props.match.params.number];
     const titleBox = document.getElementsByClassName('noteTitle')[0];
     const bodyBox = document.getElementsByClassName('noteBody')[0];
     titleBox.value = title;
@@ -36,7 +36,7 @@ class NoteEdit extends Component {
     let { noteTitle, noteBody, id} = this.state;
     if (noteTitle && noteBody !== '') {
       this.props.editNote(noteTitle, noteBody, id);
-      this.props.history.push('/');
+      this.props.history.push('/notes');
     } else {
       alert('Fields must not be empty!');
     }
@@ -59,7 +59,7 @@ class NoteEdit extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  noteData: state,
+  data: state,
 });
 
 export default connect(mapStateToProps, { editNote })(withRouter(NoteEdit));

@@ -33,7 +33,7 @@ class Modal extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  noteData: state,
+  data: state,
 });
 
 export default connect(mapStateToProps, { deleteNote })(withRouter(Modal));

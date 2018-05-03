@@ -1,58 +1,17 @@
-import { addNote, editNote, deleteNote } from '../actions';
+import { addNote, editNote, deleteNote, login } from '../actions';
 
 const initialState = {
-  notes: [
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah testing update',
-      id: 0,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah this is note 1',
-      id: 1,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah this is note 2',
-      id: 2,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
-      id: 3,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
-      id: 4,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
-      id: 5,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
-      id: 6,
-    },
-    {
-      title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
-      id: 7,
-    },
-    {
-      title: 'Super Long Note',
-      body: 'This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note. This is a super long note.',
-      id: 8,
-    },
-  ],
-  nextid: 9
+  username: '',
+  email: '',
+  notes: [],
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case 'getNotes':
+      return { ...state, notes: action.notes.map((note, index) => {note.id = index; return note;}) }
+    case 'login':
+      return { ...state, username: action.username, email: action.email }
     case 'addNote':
       return { ...state, notes: [...state.notes, action.note], nextid: state.nextid + 1 };
     case 'editNote':
