@@ -25,6 +25,7 @@ class NoteCreate extends Component {
   handleAdd(event) {
     event.preventDefault();
     let { noteTitle, noteBody, id} = this.state;
+    const username = this.props.data.username;
     const note = {
       title: noteTitle,
       body: noteBody,
@@ -33,12 +34,12 @@ class NoteCreate extends Component {
     if (noteTitle && noteBody !== '') {
       console.log(note);
       axios
-        .post('https://radiant-reef-10640.herokuapp.com/api/notes/', note)
+        .post(`https://radiant-reef-10640.herokuapp.com/api/notes/${username}`, note)
         .then(res => {
           console.log('success');
+          this.props.history.push('/notes');
         })
         .catch(err => console.error(err));
-        // this.props.history.push('/notes');
     } else {
       alert('Fields must not be empty!');
     }
