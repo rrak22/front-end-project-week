@@ -9,6 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'getNotes':
+      console.log(action.notes);
       return { ...state, notes: action.notes.map((note, index) => {note.id = index; return note;}) }
     case 'login':
       return { ...state, username: action.username, email: action.email }

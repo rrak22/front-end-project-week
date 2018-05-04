@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
@@ -24,9 +25,20 @@ class NoteCreate extends Component {
   handleAdd(event) {
     event.preventDefault();
     let { noteTitle, noteBody, id} = this.state;
+    const note = {
+      title: noteTitle,
+      body: noteBody,
+      author: this.props.data.username,
+    }
     if (noteTitle && noteBody !== '') {
-      this.props.addNote(noteTitle, noteBody, id);
-      this.props.history.push('/notes');
+      console.log(note);
+      axios
+        .post('https://radiant-reef-10640.herokuapp.com/api/notes/', note)
+        .then(res => {
+          console.log('success');
+        })
+        .catch(err => console.error(err));
+        // this.props.history.push('/notes');
     } else {
       alert('Fields must not be empty!');
     }

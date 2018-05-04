@@ -9,20 +9,15 @@ import './ListView.css';
 class ListView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: {
-        notes: [{
-        title: "test",
-        body: "test",
-      }]
-    }
-    }
   }
 
   componentDidMount() {
+    const username = this.props.data.username;
+    console.log(username);
     axios
-      .get('https://radiant-reef-10640.herokuapp.com/api/notes/')
+      .get(`https://radiant-reef-10640.herokuapp.com/api/notes/${username}`)
       .then(res => {
+        console.log(res);
         console.log(res.data);
         this.props.getNotes(res.data);
       })
