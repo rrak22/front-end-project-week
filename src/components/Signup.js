@@ -12,11 +12,12 @@ class Signup extends React.Component {
      email: '',
    };
 
- } 
- 
+ }
+
  handleChange = (event) => {
    const { name, value } = event.target;
    this.setState({ [name]: value });
+   console.log(this.state);
  };
 
  handleSubmit = (event) => {
@@ -31,7 +32,7 @@ class Signup extends React.Component {
       console.error(err);
     });
  };
- 
+
  render() {
    return (
      <div className="landingContainer">
@@ -49,7 +50,7 @@ class Signup extends React.Component {
             <br /><input type="submit" value="Submit" />
           </fieldset>
         </form>
-      <div className="landingButtonContainer"> 
+      <div className="landingButtonContainer">
         <button className="landingButton" onClick={() => { this.props.history.push('/signup') }}>Signup</button>
         <button className="landingButton" onClick={() => { this.props.history.push('/login') }}>Login</button>
         </div>
