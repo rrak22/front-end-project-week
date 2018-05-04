@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import axios from 'axios';
+import { login } from '../actions';
 import './Landing.css';
 
 class Signup extends React.Component {
@@ -17,16 +19,22 @@ class Signup extends React.Component {
  handleChange = (event) => {
    const { name, value } = event.target;
    this.setState({ [name]: value });
-   console.log(this.state);
  };
 
  handleSubmit = (event) => {
    event.preventDefault();
    const { username, password, email } = this.state;
-   console.log(username, password, email);
-   axios.post('https://radiant-reef-10640.herokuapp.com/api/user/register', { username, password, email })
+   const user = {
+     username: username,
+     password: password,
+     email: email,
+   }
+   console.log(user);
+   axios.post('https://radiant-reef-10640.herokuapp.com/api/user/register', user)
     .then(res => {
-      return console.log(res.data);
+      window.localStorage.accessToken = res.data.token;
+      this.props.login(username, email);
+      this.props.history.push('/notes');
     })
     .catch(err => {
       console.error(err);
@@ -60,4 +68,8 @@ class Signup extends React.Component {
   }
 }
 
-export default withRouter(Signup);
+const mapStateToProps = (state) => ({
+  data: state,
+});
+
+export default connect(mapStateToProps, { login })(withRouter(Signup));

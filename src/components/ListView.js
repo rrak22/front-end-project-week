@@ -13,7 +13,6 @@ class ListView extends React.Component {
 
   componentDidMount() {
     const username = this.props.data.username;
-    console.log(username);
     axios
       .get(`https://radiant-reef-10640.herokuapp.com/api/notes/${username}`)
       .then(res => {
